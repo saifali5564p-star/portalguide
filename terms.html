@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use – PortalGuide</title>
+  <meta name="description" content="Terms of Use for PortalGuide — the independent informational website about MyChart and online patient portals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy: #0b1f3a; --teal: #0d8a7a; --teal-light: #12b09e; --cream: #f7f4ef; --white: #ffffff; --gray: #6b7280; --light-gray: #e9e4db; --text: #1a2b3c; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    nav { background: var(--navy); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--teal-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal-light); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+
+    .page-header { background: var(--navy); padding: 70px 5% 60px; position: relative; overflow: hidden; }
+    .page-header::after { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(13,138,122,0.2) 0%, transparent 70%); pointer-events: none; }
+    .page-header-inner { max-width: 700px; position: relative; z-index: 1; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--teal-light); text-decoration: none; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: var(--white); margin-bottom: 1rem; }
+    .page-header p { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 300; }
+
+    .page-layout { display: grid; grid-template-columns: 220px 1fr; max-width: 1100px; margin: 0 auto; }
+    .toc { padding: 2.5rem 1.5rem; position: sticky; top: 68px; height: calc(100vh - 68px); overflow-y: auto; border-right: 1px solid var(--light-gray); background: var(--white); }
+    .toc h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.8rem; }
+    .toc ul { list-style: none; }
+    .toc ul li { margin-bottom: 0.2rem; }
+    .toc ul a { display: block; padding: 0.4rem 0.6rem; border-radius: 6px; color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: all 0.15s; }
+    .toc ul a:hover { background: rgba(13,138,122,0.07); color: var(--teal); }
+
+    .prose-area { padding: 3rem 4rem 4rem; }
+    .last-updated { font-size: 0.82rem; color: var(--gray); background: var(--white); border: 1px solid var(--light-gray); display: inline-block; padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 2rem; }
+    .prose-section { margin-bottom: 2.5rem; scroll-margin-top: 88px; }
+    .prose-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.7rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-gray); }
+    .prose-section p { font-size: 0.93rem; color: var(--gray); line-height: 1.8; margin-bottom: 0.9rem; }
+    .prose-section ul { padding-left: 1.5rem; margin: 0.6rem 0 0.9rem; }
+    .prose-section ul li { font-size: 0.93rem; color: var(--gray); line-height: 1.75; margin-bottom: 0.35rem; }
+    .prose-section strong { color: var(--navy); }
+    .prose-section a { color: var(--teal); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px 5% 24px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; }
+    .footer-links a:hover { color: var(--teal-light); }
+    @media (max-width: 900px) { .page-layout { grid-template-columns: 1fr; } .toc { display: none; } .prose-area { padding: 2rem 5%; } }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Portal<span>Guide</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guide.html">Guide</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="guide.html" class="nav-cta">Get Help</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Terms of Use</div>
+    <h1>Terms of Use</h1>
+    <p>Please read these terms carefully before using PortalGuide.</p>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="toc">
+    <h4>Contents</h4>
+    <ul>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#nature">Nature of This Site</a></li>
+      <li><a href="#no-affiliation">No Affiliation</a></li>
+      <li><a href="#informational-only">Informational Use Only</a></li>
+      <li><a href="#no-account-access">No Account Access</a></li>
+      <li><a href="#content-accuracy">Content Accuracy</a></li>
+      <li><a href="#intellectual-property">Intellectual Property</a></li>
+      <li><a href="#third-party-links">Third-Party Links</a></li>
+      <li><a href="#advertising">Advertising</a></li>
+      <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+      <li><a href="#limitation">Limitation of Liability</a></li>
+      <li><a href="#changes">Changes to Terms</a></li>
+      <li><a href="#governing">Governing Law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <div class="prose-area">
+    <div class="last-updated">Last Updated: January 1, 2025</div>
+
+    <div id="acceptance" class="prose-section">
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using PortalGuide ("Site," "we," "us," or "our"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use this website.</p>
+    </div>
+
+    <div id="nature" class="prose-section">
+      <h2>2. Nature of This Site</h2>
+      <p>PortalGuide is a <strong>free, independent informational website</strong>. Our content is designed to help users understand general concepts related to online patient portals, including MyChart. All content is for general educational and informational purposes only.</p>
+    </div>
+
+    <div id="no-affiliation" class="prose-section">
+      <h2>3. No Affiliation with MyChart or Epic Systems</h2>
+      <p><strong>PortalGuide is not affiliated with, endorsed by, partnered with, or operated by MyChart, Epic Systems Corporation, or any healthcare organization.</strong> The name "MyChart" is a registered trademark of Epic Systems Corporation. All references to MyChart on this site are for descriptive, educational purposes only.</p>
+      <p>We are an independent third-party informational resource. No content on this site should be interpreted as representing the official position or guidance of MyChart or any healthcare provider.</p>
+    </div>
+
+    <div id="informational-only" class="prose-section">
+      <h2>4. Informational Use Only</h2>
+      <p>All content on PortalGuide is provided for <strong>general informational purposes only</strong>. It does not constitute professional advice of any kind, including but not limited to healthcare, legal, financial, or technical support advice.</p>
+      <p>Information may be generalized, outdated, or not applicable to your specific situation or healthcare provider. We make no guarantees about the accuracy, completeness, or timeliness of content on this site.</p>
+    </div>
+
+    <div id="no-account-access" class="prose-section">
+      <h2>5. No Account Access or Support Services</h2>
+      <p>PortalGuide does not provide access to any patient portal. We cannot:</p>
+      <ul>
+        <li>Access, reset, or recover any patient portal account</li>
+        <li>View, store, or manage any personal health information</li>
+        <li>Provide direct technical support for any patient portal</li>
+        <li>Contact healthcare providers on your behalf</li>
+        <li>Process any health-related requests or inquiries</li>
+      </ul>
+      <p>For any account-specific assistance, you must contact your healthcare provider directly.</p>
+    </div>
+
+    <div id="content-accuracy" class="prose-section">
+      <h2>6. Content Accuracy</h2>
+      <p>We make reasonable efforts to ensure the accuracy of information on this site. However, patient portal features, processes, and designs vary significantly between healthcare organizations and may change at any time.</p>
+      <p>The information provided on PortalGuide is general in nature and may not accurately reflect the specific portal used by your healthcare provider. Always refer to your provider's official website or contact their support team for accurate, provider-specific guidance.</p>
+    </div>
+
+    <div id="intellectual-property" class="prose-section">
+      <h2>7. Intellectual Property</h2>
+      <p>All original content on PortalGuide, including text, graphics, layouts, and design, is owned by PortalGuide and protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from our content without written permission.</p>
+      <p>Third-party trademarks referenced on this site remain the property of their respective owners. Use of such trademarks for reference purposes does not imply any affiliation or endorsement.</p>
+    </div>
+
+    <div id="third-party-links" class="prose-section">
+      <h2>8. Third-Party Links</h2>
+      <p>Our site may contain links to third-party websites, including healthcare providers and official portal support pages. These links are provided for convenience only. We are not responsible for the content, accuracy, or practices of any external websites. Visiting third-party sites is at your own risk.</p>
+    </div>
+
+    <div id="advertising" class="prose-section">
+      <h2>9. Advertising</h2>
+      <p>PortalGuide may display third-party advertisements served by Google AdSense or similar advertising networks. The presence of an advertisement does not constitute an endorsement of the advertised product or service. Advertisers are independent third parties and we are not responsible for their products, services, or claims.</p>
+      <p>Advertising content is clearly distinct from our editorial content. We do not allow advertisers to influence our informational content.</p>
+    </div>
+
+    <div id="disclaimer" class="prose-section">
+      <h2>10. Disclaimer of Warranties</h2>
+      <p>THIS WEBSITE AND ITS CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, PORTALGUIDE DISCLAIMS ALL WARRANTIES INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+    </div>
+
+    <div id="limitation" class="prose-section">
+      <h2>11. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, PortalGuide and its operators shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of or inability to use this website or its content.</p>
+    </div>
+
+    <div id="changes" class="prose-section">
+      <h2>12. Changes to These Terms</h2>
+      <p>We reserve the right to update these Terms of Use at any time. Updated terms will be posted on this page with a revised date. Continued use of the site after any changes constitutes acceptance of the revised terms.</p>
+    </div>
+
+    <div id="governing" class="prose-section">
+      <h2>13. Governing Law</h2>
+      <p>These Terms of Use shall be governed by and construed in accordance with applicable law. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the applicable courts.</p>
+    </div>
+
+    <div id="contact" class="prose-section">
+      <h2>14. Contact</h2>
+      <p>If you have questions about these Terms of Use, please contact us through our <a href="contact.html">Contact page</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2025 PortalGuide. All rights reserved. Independent informational resource.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="guide.html">Guide</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

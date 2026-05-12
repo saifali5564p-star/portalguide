@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyChart & Patient Portal Guide – PortalGuide</title>
+  <meta name="description" content="Step-by-step guide on how to access, navigate, and use MyChart and online patient portals. Covers sign-in, account recovery, features, and navigation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0b1f3a; --teal: #0d8a7a; --teal-light: #12b09e;
+      --cream: #f7f4ef; --white: #ffffff; --gray: #6b7280;
+      --light-gray: #e9e4db; --accent: #e8a838; --text: #1a2b3c;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    nav {
+      background: var(--navy); padding: 0 5%; display: flex; align-items: center;
+      justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--teal-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal-light); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+
+    .page-header { background: var(--navy); padding: 70px 5% 60px; position: relative; overflow: hidden; }
+    .page-header::after { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(13,138,122,0.2) 0%, transparent 70%); pointer-events: none; }
+    .page-header-inner { max-width: 700px; position: relative; z-index: 1; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--teal-light); text-decoration: none; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: var(--white); margin-bottom: 1rem; }
+    .page-header p { color: rgba(255,255,255,0.65); font-size: 1.05rem; font-weight: 300; }
+
+    .guide-layout { display: grid; grid-template-columns: 240px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; }
+
+    /* SIDEBAR NAV */
+    .guide-sidebar {
+      background: var(--white); border-right: 1px solid var(--light-gray);
+      padding: 2rem 1.5rem; position: sticky; top: 68px; height: calc(100vh - 68px);
+      overflow-y: auto;
+    }
+    .sidebar-nav-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-gray); }
+    .sidebar-nav-list { list-style: none; }
+    .sidebar-nav-list li { margin-bottom: 0.2rem; }
+    .sidebar-nav-list a { display: flex; align-items: center; gap: 0.6rem; padding: 0.55rem 0.7rem; border-radius: 8px; color: var(--gray); text-decoration: none; font-size: 0.88rem; transition: all 0.15s; }
+    .sidebar-nav-list a:hover { background: rgba(13,138,122,0.07); color: var(--teal); }
+    .sidebar-nav-list a.active { background: rgba(13,138,122,0.1); color: var(--teal); font-weight: 600; }
+
+    /* GUIDE CONTENT */
+    .guide-content { padding: 3rem 4rem 4rem 3rem; }
+    .guide-section { margin-bottom: 4rem; scroll-margin-top: 88px; }
+    .guide-section:last-child { margin-bottom: 0; }
+
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(13,138,122,0.1); color: var(--teal);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 30px; margin-bottom: 0.8rem;
+    }
+    .guide-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 0.8rem; }
+    .guide-section > p { color: var(--gray); font-size: 0.97rem; line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .steps-list { list-style: none; counter-reset: step-counter; }
+    .steps-list li {
+      counter-increment: step-counter;
+      position: relative;
+      padding: 1.2rem 1.2rem 1.2rem 3.8rem;
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      margin-bottom: 0.85rem;
+    }
+    .steps-list li::before {
+      content: counter(step-counter);
+      position: absolute; left: 1.2rem; top: 1.2rem;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--teal); color: white;
+      font-size: 0.82rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .steps-list li h4 { font-size: 0.95rem; color: var(--navy); font-weight: 600; margin-bottom: 0.3rem; }
+    .steps-list li p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    .info-card {
+      background: var(--white); border: 1px solid var(--light-gray); border-radius: 14px;
+      padding: 1.5rem 1.8rem; margin: 1.5rem 0;
+    }
+    .info-card.teal-border { border-left: 4px solid var(--teal); }
+    .info-card h4 { font-size: 1rem; color: var(--navy); font-weight: 600; margin-bottom: 0.6rem; }
+    .info-card p, .info-card ul { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+    .info-card ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+    .info-card ul li { margin-bottom: 0.4rem; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .feature-item { background: var(--white); border: 1px solid var(--light-gray); border-radius: 12px; padding: 1.2rem; }
+    .feature-item .fi { font-size: 1.4rem; margin-bottom: 0.6rem; }
+    .feature-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .feature-item p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+
+    .tip-box { background: rgba(232,168,56,0.1); border: 1.5px solid rgba(232,168,56,0.3); border-radius: 10px; padding: 1rem 1.3rem; margin: 1rem 0; display: flex; gap: 0.7rem; }
+    .tip-box span { font-size: 1.1rem; flex-shrink: 0; }
+    .tip-box p { font-size: 0.88rem; color: var(--text); line-height: 1.65; }
+    .tip-box strong { color: var(--navy); }
+
+    .divider { border: none; border-top: 1px solid var(--light-gray); margin: 3rem 0; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px 5% 24px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; }
+    .footer-links a:hover { color: var(--teal-light); }
+    @media (max-width: 900px) { .guide-layout { grid-template-columns: 1fr; } .guide-sidebar { display: none; } .guide-content { padding: 2rem 5%; } }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Portal<span>Guide</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guide.html" class="active">Guide</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="guide.html" class="nav-cta">Get Help</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Guide</div>
+    <h1>MyChart &amp; Patient Portal Guide</h1>
+    <p>Step-by-step explanations of how to access, navigate, and understand online patient portals including MyChart.</p>
+  </div>
+</div>
+
+<div class="guide-layout">
+  <aside class="guide-sidebar">
+    <div class="sidebar-nav-title">Guide Sections</div>
+    <ul class="sidebar-nav-list">
+      <li><a href="#overview" class="active">📋 Portal Overview</a></li>
+      <li><a href="#access">🔑 Accessing MyChart</a></li>
+      <li><a href="#setup">⚙️ Account Setup</a></li>
+      <li><a href="#recovery">🔄 Account Recovery</a></li>
+      <li><a href="#navigation">🗺️ Navigation Help</a></li>
+      <li><a href="#features">✨ Portal Features</a></li>
+      <li><a href="#mobile">📱 Mobile Access</a></li>
+      <li><a href="#support">📞 Getting Real Help</a></li>
+    </ul>
+  </aside>
+
+  <div class="guide-content">
+
+    <!-- OVERVIEW -->
+    <div id="overview" class="guide-section">
+      <div class="section-badge">📋 Introduction</div>
+      <h2>What Is a Patient Portal?</h2>
+      <p>An online patient portal is a secure website that healthcare organizations provide to give patients convenient, around-the-clock access to their personal health information. MyChart, developed by Epic Systems, is one of the most widely used patient portal platforms in the United States.</p>
+      <div class="info-card teal-border">
+        <h4>What MyChart Typically Provides</h4>
+        <p>MyChart is a portal platform — not a standalone app or service. Each healthcare organization customizes it. The general purpose is to provide patients with a central place to manage their health-related interactions online.</p>
+      </div>
+      <p>Patient portals like MyChart are designed to reduce the need for phone calls and paperwork by centralizing common patient requests in a single secure interface. Access is granted by your healthcare provider when you establish care.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ACCESSING -->
+    <div id="access" class="guide-section">
+      <div class="section-badge">🔑 Accessing MyChart</div>
+      <h2>How to Access Your Patient Portal</h2>
+      <p>To use MyChart or a similar patient portal, you need an account that was set up or invited by your healthcare provider. Here is how access typically works:</p>
+      <ol class="steps-list">
+        <li>
+          <h4>Receive an Invitation</h4>
+          <p>Most portals require an invitation from your healthcare provider. This usually comes as an email with an activation link, or a printed code given at your appointment.</p>
+        </li>
+        <li>
+          <h4>Visit the Portal Website or App</h4>
+          <p>Go to the specific MyChart URL provided by your healthcare organization, or download the MyChart mobile app. Different health systems have different portal addresses.</p>
+        </li>
+        <li>
+          <h4>Enter Your Credentials</h4>
+          <p>Enter the username and password you created during account setup. First-time users will use their activation code or invitation link to create these credentials.</p>
+        </li>
+        <li>
+          <h4>Complete Two-Factor Authentication (If Required)</h4>
+          <p>Many portals now require a verification code sent to your phone or email as an added security step when signing in from a new device.</p>
+        </li>
+        <li>
+          <h4>Access Your Portal Dashboard</h4>
+          <p>Once signed in, you will land on your personal dashboard where you can navigate the various sections of your portal.</p>
+        </li>
+      </ol>
+      <div class="tip-box">
+        <span>💡</span>
+        <p><strong>Tip:</strong> If you do not know which portal URL to use, check the official website of your hospital or clinic — there is usually a "Patient Portal" link in the main navigation.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SETUP -->
+    <div id="setup" class="guide-section">
+      <div class="section-badge">⚙️ Account Setup</div>
+      <h2>Setting Up a New MyChart Account</h2>
+      <p>New account setup is typically initiated by your healthcare provider. Here's what to expect during the process:</p>
+      <ol class="steps-list">
+        <li>
+          <h4>Receive an Activation Code</h4>
+          <p>Your healthcare provider will give you an activation code — either at the front desk, in a visit summary, or via email. This code is unique to you and expires after a set number of days.</p>
+        </li>
+        <li>
+          <h4>Go to the Activation Page</h4>
+          <p>Visit your provider's MyChart website and look for a "Sign Up" or "Create Account" option. Enter your activation code when prompted.</p>
+        </li>
+        <li>
+          <h4>Verify Your Identity</h4>
+          <p>You will be asked to verify personal details such as your date of birth. This step confirms the account is being created by the correct person.</p>
+        </li>
+        <li>
+          <h4>Create a Username and Password</h4>
+          <p>Choose a secure username and a password that meets the portal's requirements (typically including letters, numbers, and special characters).</p>
+        </li>
+        <li>
+          <h4>Set Up Recovery Options</h4>
+          <p>Add a recovery email address and/or phone number. This is important if you ever need to recover access in the future.</p>
+        </li>
+      </ol>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- RECOVERY -->
+    <div id="recovery" class="guide-section">
+      <div class="section-badge">🔄 Account Recovery</div>
+      <h2>Recovering Your MyChart Access</h2>
+      <p>If you cannot sign in to your patient portal, most systems provide self-service recovery options. Here are the most common steps:</p>
+      <ol class="steps-list">
+        <li>
+          <h4>Use the "Forgot Username" Option</h4>
+          <p>On the login page, look for a "Forgot Username" link. You will typically be asked to enter the email address associated with your account and your date of birth to retrieve your username.</p>
+        </li>
+        <li>
+          <h4>Use the "Forgot Password" Option</h4>
+          <p>Click "Forgot Password" on the login page. A password reset link is usually sent to your registered email address or phone number.</p>
+        </li>
+        <li>
+          <h4>Verify Your Identity</h4>
+          <p>For security, the portal may ask you to confirm personal information before resetting your credentials. This typically includes your date of birth or the last four digits of your social security number.</p>
+        </li>
+        <li>
+          <h4>Contact Your Healthcare Provider</h4>
+          <p>If self-service options do not work, contact your provider's patient services team directly. They can issue a new activation code or assist with account recovery in person.</p>
+        </li>
+      </ol>
+      <div class="info-card">
+        <h4>Common Reasons People Can't Sign In</h4>
+        <ul>
+          <li>Incorrect username (some systems are case-sensitive)</li>
+          <li>Forgotten or expired password</li>
+          <li>Account locked after too many failed attempts</li>
+          <li>Using the wrong portal URL for their specific provider</li>
+          <li>Browser or cookies issue — try clearing browser cache or using a different browser</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- NAVIGATION -->
+    <div id="navigation" class="guide-section">
+      <div class="section-badge">🗺️ Navigation</div>
+      <h2>Navigating Your Patient Portal Dashboard</h2>
+      <p>Once you are signed in to MyChart, you will see a dashboard with several sections. While every healthcare organization customizes their portal, most MyChart installations share a similar general layout.</p>
+      <div class="info-card teal-border">
+        <h4>Typical Dashboard Sections</h4>
+        <ul>
+          <li><strong>Home / Summary:</strong> A quick overview of upcoming appointments and recent activity</li>
+          <li><strong>Visits / Appointments:</strong> Past and upcoming appointment information</li>
+          <li><strong>Messaging:</strong> Secure message inbox for communicating with your care team</li>
+          <li><strong>Test Results:</strong> A section where lab and test results are posted</li>
+          <li><strong>Health Summary:</strong> General health information maintained by your provider</li>
+          <li><strong>Billing:</strong> Account billing information and statements</li>
+          <li><strong>Settings / Profile:</strong> Your personal information and preferences</li>
+        </ul>
+      </div>
+      <div class="tip-box">
+        <span>💡</span>
+        <p><strong>Tip:</strong> If you're looking for a specific section and can't find it, look for a "Menu" or hamburger icon — on mobile, many sections are collapsed into a single menu button.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- FEATURES -->
+    <div id="features" class="guide-section">
+      <div class="section-badge">✨ Features</div>
+      <h2>Common Patient Portal Features</h2>
+      <p>Most MyChart-powered portals include a consistent set of features, though availability depends on your healthcare organization. Here's an overview of what is commonly accessible:</p>
+      <div class="features-grid">
+        <div class="feature-item"><div class="fi">📅</div><h4>Appointment Scheduling</h4><p>View, request, or confirm appointments with your provider online.</p></div>
+        <div class="feature-item"><div class="fi">💬</div><h4>Secure Messaging</h4><p>Send non-urgent messages to your care team and receive responses.</p></div>
+        <div class="feature-item"><div class="fi">🧪</div><h4>Test Results</h4><p>View lab results and other test outcomes when they are made available.</p></div>
+        <div class="feature-item"><div class="fi">🔔</div><h4>Notifications &amp; Alerts</h4><p>Receive alerts about new messages, upcoming appointments, and portal updates.</p></div>
+        <div class="feature-item"><div class="fi">📄</div><h4>Visit Summaries</h4><p>Access notes and summaries from past appointments with your provider.</p></div>
+        <div class="feature-item"><div class="fi">💳</div><h4>Billing & Payments</h4><p>View statements and make payments for healthcare services online.</p></div>
+        <div class="feature-item"><div class="fi">👨‍👩‍👧</div><h4>Proxy Access</h4><p>Authorized caregivers can access the portal on behalf of a patient.</p></div>
+        <div class="feature-item"><div class="fi">📱</div><h4>Mobile App</h4><p>Access most features through the official MyChart mobile application.</p></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- MOBILE -->
+    <div id="mobile" class="guide-section">
+      <div class="section-badge">📱 Mobile Access</div>
+      <h2>Using MyChart on a Mobile Device</h2>
+      <p>MyChart is available as a mobile application for both iOS and Android devices. The app provides most of the same features as the browser-based portal.</p>
+      <ol class="steps-list">
+        <li>
+          <h4>Download the MyChart App</h4>
+          <p>Search for "MyChart" in the Apple App Store or Google Play Store. Download and install the official app from Epic Systems.</p>
+        </li>
+        <li>
+          <h4>Select Your Healthcare Organization</h4>
+          <p>When you open the app, search for your specific healthcare provider or hospital. The app connects to the portal of your selected organization.</p>
+        </li>
+        <li>
+          <h4>Sign In With Your Credentials</h4>
+          <p>Use the same username and password you created during web-based setup. You may be prompted to verify your identity the first time you sign in on a new device.</p>
+        </li>
+        <li>
+          <h4>Enable Notifications (Optional)</h4>
+          <p>Allow the app to send push notifications so you are alerted when new messages, results, or appointment reminders are available.</p>
+        </li>
+      </ol>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SUPPORT -->
+    <div id="support" class="guide-section">
+      <div class="section-badge">📞 Getting Real Help</div>
+      <h2>Where to Get Direct Account Support</h2>
+      <p>PortalGuide provides educational information, but for direct account-specific assistance, you need to contact your healthcare provider. Here's how to find the right support:</p>
+      <ol class="steps-list">
+        <li>
+          <h4>Visit Your Provider's Official Website</h4>
+          <p>Go to the official website of your hospital, clinic, or healthcare system. Look for a "Patient Portal" or "MyChart Support" section.</p>
+        </li>
+        <li>
+          <h4>Call the Patient Services Line</h4>
+          <p>Most healthcare systems have a dedicated patient services phone number where staff can assist with portal access issues. This number is usually on their website or on any paperwork they've given you.</p>
+        </li>
+        <li>
+          <h4>Visit the Front Desk</h4>
+          <p>For activation code issues or identity verification problems, visiting the front desk of your provider's office in person is often the fastest solution.</p>
+        </li>
+        <li>
+          <h4>Use the Portal's Built-In Help</h4>
+          <p>If you can partially access your portal, look for a Help or FAQ section within the portal itself — many providers have in-portal support resources.</p>
+        </li>
+      </ol>
+      <div class="info-card teal-border">
+        <h4>Note from PortalGuide</h4>
+        <p>We are an informational resource only. We cannot access your account, reset your password, or provide personal account assistance. For all account-specific needs, please contact your healthcare provider directly. If you need help finding your provider's contact information, visit our <a href="contact.html" style="color:var(--teal)">Contact page</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2025 PortalGuide. All rights reserved. Independent informational resource.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

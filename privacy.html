@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – PortalGuide</title>
+  <meta name="description" content="PortalGuide Privacy Policy — learn how we handle data on our informational website about MyChart and patient portals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy: #0b1f3a; --teal: #0d8a7a; --teal-light: #12b09e; --cream: #f7f4ef; --white: #ffffff; --gray: #6b7280; --light-gray: #e9e4db; --text: #1a2b3c; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    nav { background: var(--navy); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--teal-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal-light); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600 !important; }
+
+    .page-header { background: var(--navy); padding: 70px 5% 60px; position: relative; overflow: hidden; }
+    .page-header::after { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(13,138,122,0.2) 0%, transparent 70%); pointer-events: none; }
+    .page-header-inner { max-width: 700px; position: relative; z-index: 1; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--teal-light); text-decoration: none; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: var(--white); margin-bottom: 1rem; }
+    .page-header p { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 300; }
+
+    .page-layout { display: grid; grid-template-columns: 220px 1fr; max-width: 1100px; margin: 0 auto; }
+    .toc { padding: 2.5rem 1.5rem; position: sticky; top: 68px; height: calc(100vh - 68px); overflow-y: auto; border-right: 1px solid var(--light-gray); background: var(--white); }
+    .toc h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 0.8rem; }
+    .toc ul { list-style: none; }
+    .toc ul li { margin-bottom: 0.2rem; }
+    .toc ul a { display: block; padding: 0.4rem 0.6rem; border-radius: 6px; color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: all 0.15s; }
+    .toc ul a:hover { background: rgba(13,138,122,0.07); color: var(--teal); }
+
+    .prose-area { padding: 3rem 4rem 4rem; }
+    .last-updated { font-size: 0.82rem; color: var(--gray); background: var(--white); border: 1px solid var(--light-gray); display: inline-block; padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 2rem; }
+    .prose-section { margin-bottom: 2.5rem; scroll-margin-top: 88px; }
+    .prose-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.7rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-gray); }
+    .prose-section p { font-size: 0.93rem; color: var(--gray); line-height: 1.8; margin-bottom: 0.9rem; }
+    .prose-section ul { padding-left: 1.5rem; margin: 0.6rem 0 0.9rem; }
+    .prose-section ul li { font-size: 0.93rem; color: var(--gray); line-height: 1.75; margin-bottom: 0.35rem; }
+    .prose-section strong { color: var(--navy); }
+    .prose-section a { color: var(--teal); }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 40px 5% 24px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.2rem; font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; }
+    .footer-links a:hover { color: var(--teal-light); }
+    @media (max-width: 900px) { .page-layout { grid-template-columns: 1fr; } .toc { display: none; } .prose-area { padding: 2rem 5%; } }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Portal<span>Guide</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guide.html">Guide</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="guide.html" class="nav-cta">Get Help</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p>How PortalGuide collects, uses, and protects information on this website.</p>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="toc">
+    <h4>Contents</h4>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#information">Information We Collect</a></li>
+      <li><a href="#usage">How We Use Information</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#third-party">Third-Party Services</a></li>
+      <li><a href="#ads">Advertising</a></li>
+      <li><a href="#no-health-data">No Health Data</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#your-rights">Your Rights</a></li>
+      <li><a href="#changes">Policy Changes</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <div class="prose-area">
+    <div class="last-updated">Last Updated: January 1, 2025</div>
+
+    <div id="overview" class="prose-section">
+      <h2>Overview</h2>
+      <p>PortalGuide ("we," "our," or "us") operates the website at this domain. This Privacy Policy explains how we collect, use, and protect information when you visit our site.</p>
+      <p>We are committed to protecting your privacy. PortalGuide is a <strong>general informational website</strong>. We do not collect personal health information, do not provide access to any patient portal, and do not store sensitive personal data.</p>
+    </div>
+
+    <div id="information" class="prose-section">
+      <h2>Information We Collect</h2>
+      <p>We may collect limited, non-personally-identifying information in the following ways:</p>
+      <ul>
+        <li><strong>Usage Data:</strong> Standard web server logs including your browser type, pages visited, time spent, and referring URLs.</li>
+        <li><strong>Analytics Data:</strong> Aggregated, anonymized data about how visitors use our site (e.g., which pages are most viewed).</li>
+        <li><strong>Contact Form Submissions:</strong> If you contact us via our contact form, we collect the name, email address, and message content you provide. We use this only to respond to your inquiry.</li>
+      </ul>
+      <p>We do <strong>not</strong> collect names, addresses, financial information, health records, login credentials, social security numbers, or any other sensitive personal data through standard browsing.</p>
+    </div>
+
+    <div id="usage" class="prose-section">
+      <h2>How We Use Information</h2>
+      <p>The limited information we collect is used to:</p>
+      <ul>
+        <li>Understand how visitors use our site and improve our content</li>
+        <li>Respond to inquiries submitted via our contact form</li>
+        <li>Monitor website performance and identify technical issues</li>
+        <li>Comply with legal obligations if required</li>
+      </ul>
+      <p>We do not sell, rent, or trade your information with third parties for marketing purposes.</p>
+    </div>
+
+    <div id="cookies" class="prose-section">
+      <h2>Cookies</h2>
+      <p>Our website may use cookies — small text files stored in your browser — to improve your browsing experience. Cookies we may use include:</p>
+      <ul>
+        <li><strong>Essential Cookies:</strong> Required for basic website functionality.</li>
+        <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site in aggregate, anonymized form.</li>
+        <li><strong>Advertising Cookies:</strong> If we serve display advertising, ad networks may use cookies to show relevant ads. See the Advertising section below.</li>
+      </ul>
+      <p>You can control or disable cookies through your browser settings. Disabling cookies may affect some website functionality.</p>
+    </div>
+
+    <div id="third-party" class="prose-section">
+      <h2>Third-Party Services</h2>
+      <p>We may use third-party services to help operate our website, including:</p>
+      <ul>
+        <li><strong>Web Hosting:</strong> Our website is hosted by a third-party provider.</li>
+        <li><strong>Analytics:</strong> We may use analytics tools such as Google Analytics to understand site traffic. These services collect anonymized usage data.</li>
+        <li><strong>Advertising Networks:</strong> We may display ads from advertising networks including Google AdSense. These networks have their own privacy policies governing data use.</li>
+      </ul>
+      <p>These third-party services have their own privacy policies. We encourage you to review them.</p>
+    </div>
+
+    <div id="ads" class="prose-section">
+      <h2>Advertising</h2>
+      <p>PortalGuide may display advertisements served by Google or other third-party ad networks. These ad networks may use cookies and web beacons to collect data about your visits to this and other websites to provide relevant advertisements.</p>
+      <p>You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google's Ads Settings</a> or <a href="https://www.aboutads.info" target="_blank" rel="noopener">www.aboutads.info</a>.</p>
+      <p>We do not control the content of third-party advertisements and they are not endorsed by us.</p>
+    </div>
+
+    <div id="no-health-data" class="prose-section">
+      <h2>No Health Data Collected</h2>
+      <p>PortalGuide is an informational website only. <strong>We do not collect, store, or process any personal health information, medical records, patient portal login credentials, insurance information, or any data regulated by HIPAA or similar health data protection laws.</strong></p>
+      <p>We strongly advise that you never submit personal health data, portal usernames, passwords, or sensitive personal information through our contact form or any page on this site.</p>
+    </div>
+
+    <div id="children" class="prose-section">
+      <h2>Children's Privacy</h2>
+      <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has submitted personal information to us, please contact us so we can remove it.</p>
+    </div>
+
+    <div id="your-rights" class="prose-section">
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have rights regarding your personal data, including the right to access, correct, or request deletion of information we hold about you. To exercise these rights, contact us using the information below.</p>
+      <p>California residents may have additional rights under the California Consumer Privacy Act (CCPA). EU/EEA residents may have rights under the General Data Protection Regulation (GDPR).</p>
+    </div>
+
+    <div id="changes" class="prose-section">
+      <h2>Policy Changes</h2>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+    </div>
+
+    <div id="contact" class="prose-section">
+      <h2>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how we handle information, please contact us through our <a href="contact.html">Contact page</a>.</p>
+      <p>Remember: we are an informational website only and cannot assist with patient portal account issues. For account-specific help, please contact your healthcare provider directly.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2025 PortalGuide. All rights reserved. Independent informational resource.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="guide.html">Guide</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
